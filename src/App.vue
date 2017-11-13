@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <img src="./assets/logo.png">
 
     <div class="get-list" v-if="hasResult">
@@ -10,6 +11,11 @@
     </div>
 
     <button v-else v-on:click="searchTerm">Load Article</button>
+
+    <h1>Vuex Testing</h1>
+    <p>Parent: counter: {{ this.$store.state.counter }}</p>
+    <button @click="addCounter">Increase from HelloWorld.vue +</button>
+    <button @click="subCounter">Decrease from HelloWorld.vue -</button>
 
     <router-view/>
   </div>
@@ -37,6 +43,12 @@ export default {
         console.log(result)
         this.posts = result.data
       })
+    },
+    addCounter () {
+      this.$store.state.counter++
+    },
+    subCounter () {
+      this.$store.state.counter--
     }
   }
 }
@@ -50,17 +62,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
   .get-list {
     text-align: left;
+
+    h1,
+    p {
+      display: inline;
+    }
   }
   button {
     display:block;
     margin: 30px auto;
-  }
-
-  h1,
-  p {
-    display: inline;
   }
 }
 </style>
