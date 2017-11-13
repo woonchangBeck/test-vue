@@ -7,6 +7,14 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    counter: 0
+    counter: 0,
+    auther: 'Wonchang Beck',
+    dataForAuther: [
+      {
+        'age': 37,
+        'title': 'Sr.Front end Engineer',
+        'employer': 'Nexon Global'
+      }
+    ]
   }
 })
