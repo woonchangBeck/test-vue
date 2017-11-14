@@ -3,17 +3,19 @@
 
     <img src="./assets/logo.png">
 
-    <h1>Vuex http request test</h1>
-    <div class="get-list" v-if="hasResult">
-      <div v-for="post in posts" v-bind:key="post.id">
-        <h1>{{ post.id }}</h1>
-        <p>{{ post.title }}</p>
+    <div class="section">
+      <h1>Vuex http request test</h1>
+      <div class="get-list" v-if="hasResult">
+        <div v-for="post in posts" v-bind:key="post.id">
+          <h1>{{ post.id }}</h1>
+          <p>{{ post.title }}</p>
+        </div>
       </div>
+
+      <button v-else v-on:click="searchTerm">Load Article</button>
     </div>
 
-    <button v-else v-on:click="searchTerm">Load Article</button>
-
-    <div class="vuex-test">
+    <div class="section vuex-test">
       <h1>Vuex Testing</h1>
       <p>Parent: counter: {{ parentCounter }}</p>
       <button @click="addCounter">Increase from HelloWorld.vue +</button>
@@ -21,6 +23,12 @@
     </div>
 
     <router-view/>
+
+    <div class="section">
+      <h1>Environemnt information</h1>
+      <p>Environment: <span>{{ environmentName }}</span></p>
+      <p>GTM-ID: <span>{{ GTM }}</span></p>
+    </div>
   </div>
 </template>
 
@@ -29,7 +37,9 @@ export default {
   name: 'app',
   data: function () {
     return {
-      posts: []
+      posts: [],
+      environmentName: process.env.NODE_ENV,
+      GTM: process.env.GTM
     }
   },
   computed: {
@@ -89,6 +99,10 @@ export default {
     button {
       display: inline-block;
     }
+  }
+  .section {
+    margin: 40px 0;
+    border-top: 1px solid black;
   }
 }
 </style>
