@@ -3,6 +3,7 @@
 
     <img src="./assets/logo.png">
 
+    <h1>Vuex http request test</h1>
     <div class="get-list" v-if="hasResult">
       <div v-for="post in posts" v-bind:key="post.id">
         <h1>{{ post.id }}</h1>
@@ -12,10 +13,12 @@
 
     <button v-else v-on:click="searchTerm">Load Article</button>
 
-    <h1>Vuex Testing</h1>
-    <p>Parent: counter: {{ this.$store.state.counter }}</p>
-    <button @click="addCounter">Increase from HelloWorld.vue +</button>
-    <button @click="subCounter">Decrease from HelloWorld.vue -</button>
+    <div class="vuex-test">
+      <h1>Vuex Testing</h1>
+      <p>Parent: counter: {{ parentCounter }}</p>
+      <button @click="addCounter">Increase from HelloWorld.vue +</button>
+      <button @click="subCounter">Decrease from HelloWorld.vue -</button>
+    </div>
 
     <router-view/>
   </div>
@@ -32,6 +35,9 @@ export default {
   computed: {
     hasResult: function () {
       return this.posts.length > 0
+    },
+    parentCounter () {
+      return this.$store.state.counter
     }
   },
   methods: {
@@ -45,7 +51,11 @@ export default {
       })
     },
     addCounter () {
-      this.$store.state.counter++
+      // this.$store.state.counter++
+      // use Mutations
+      // this.$store.commit('addCounter', 5)
+      // use Actions
+      this.$store.dispatch('addCounter')
     },
     subCounter () {
       this.$store.state.counter--
@@ -73,7 +83,12 @@ export default {
   }
   button {
     display:block;
-    margin: 30px auto;
+    margin: 0 auto;
+  }
+  .vuex-test {
+    button {
+      display: inline-block;
+    }
   }
 }
 </style>
