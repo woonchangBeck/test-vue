@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="login">
     {{ msg }}
     <p>Child counter: {{ childCounter }}</p>
   </div>
@@ -7,10 +7,10 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'login',
   data () {
     return {
-      msg: 'This is from HelloWorld.vue (From child component)'
+      msg: 'This is from login.vue'
     }
   },
   computed: {

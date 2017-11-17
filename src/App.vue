@@ -4,7 +4,7 @@
     <img src="./assets/logo.png">
 
     <div class="section">
-      <h1>Vuex http request test</h1>
+      <h1>Vue http request test</h1>
       <div class="get-list" v-if="hasResult">
         <div v-for="post in posts" v-bind:key="post.id">
           <h1>{{ post.id }}</h1>
@@ -24,6 +24,17 @@
 
     <router-view/>
 
+
+    <div class="section">
+      <h1>Traslate test</h1>
+      {{ $t('message.hello') }}
+
+      <select v-model="$i18n.locale">
+        <option value="en">en</option>
+        <option value="ko">ko</option>
+      </select>
+    </div>
+
     <div class="section">
       <h1>Environemnt information</h1>
       <p>Environment: <span>{{ environmentName }}</span></p>
@@ -39,7 +50,8 @@ export default {
     return {
       posts: [],
       environmentName: process.env.NODE_ENV,
-      GTM: process.env.GTM
+      GTM: process.env.GTM,
+      title: this.$t('message.hello')
     }
   },
   computed: {

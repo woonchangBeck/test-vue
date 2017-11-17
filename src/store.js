@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     counter: 0,
+//    title: this.$t('message.hello'),
     auther: 'Wonchang Beck',
     dataForAuther: [
       {
@@ -22,7 +23,7 @@ export const store = new Vuex.Store({
   },
   mutations: {
     addCounter: function (state, payload) {
-      return state.counter++
+      state.counter = payload.value
     }
   },
   actions: {
