@@ -18,7 +18,7 @@
     <div class="section vuex-test">
       <h1>Vuex Testing</h1>
       <p>Parent: counter: {{ parentCounter }}</p>
-      <button @click="addCounter">Increase from HelloWorld.vue +</button>
+      <button @click="addCounter">Assign string value with Mutations</button>
       <button @click="subCounter">Decrease from HelloWorld.vue -</button>
     </div>
 
@@ -77,7 +77,7 @@ export default {
       // use Mutations
       // this.$store.commit('addCounter', 5)
       // use Actions
-      this.$store.dispatch('addCounter')
+      this.$store.commit('addCounter', 'test-url')
     },
     subCounter () {
       this.$store.state.counter--
@@ -86,35 +86,29 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-
-  .get-list {
-    text-align: left;
-
-    h1,
-    p {
-      display: inline;
-    }
-  }
-  button {
-    display:block;
-    margin: 0 auto;
-  }
-  .vuex-test {
-    button {
-      display: inline-block;
-    }
-  }
-  .section {
-    margin: 40px 0;
-    border-top: 1px solid black;
-  }
+}
+.get-list {
+  text-align: left;
+}
+h1,
+p {
+  display: block;
+}
+button {
+  display:block;
+  margin: 0 auto;
+}
+.vuex-test button {
+  display: inline-block;
+}
+.section {
+  margin: 40px 0;
+  border-top: 1px solid black;
 }
 </style>

@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
   .hello {
     margin-top: 30px;
   }
